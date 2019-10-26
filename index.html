@@ -8,7 +8,16 @@
     <body>
         <h1>Launch Checklist Form</h1>
         <div id="missionTarget">
-            <!-- Fetch some planetary data -->
+            <script>
+            window.addEventListener("load", function() {
+                fetch("https://handlers.education.launchcode.org/static/weather.json").then( function(response) {
+                   // Access the JSON in the response
+                   response.json().then( function(json) {
+                      console.log(json);
+                   });
+                });
+             })
+            </script>
         </div> 
         <div id="launchForm">
             <form>
@@ -26,13 +35,19 @@
                 </div>
                 <button id="formSubmit">Submit</button>
             </form>
+
+            <script>
+                asdfasdf
+               
+             </script>
+             
         </div>
         <div id="launchStatusCheck">
             <h2 id="launchStatus">Awaiting Information Before Launch</h2>
             <div  id="faultyItems">
                 <ol>
-                    <li id="pilotStatus">Pilot Ready</li>
-                    <li id="copilotStatus">Co-pilot Ready</li>
+                    <li id="pilotStatus">`Pilot ${pilotName.value} is Ready for launch`</li>
+                    <li id="copilotStatus">`Co-pilot ${copilotName.value} is Ready for launch`</li>
                     <li id="fuelStatus">Fuel level high enough for launch</li>
                     <li id="cargoStatus">Cargo mass low enough for launch</li>
                 </ol>
